@@ -2,12 +2,19 @@
 
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\CategoryController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\StoreSettingController;
 use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
     Route::resource('products', ProductController::class);
     Route::resource('categories', CategoryController::class);
+
+    Route::get('/store-settings', [StoreSettingController::class, 'edit'])
+        ->name('store-settings.edit');
+
+    Route::put('/store-settings', [StoreSettingController::class, 'update'])
+        ->name('store-settings.update');
 });
 
 Route::get('/dashboard', function () {
@@ -19,4 +26,5 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
 require __DIR__.'/auth.php';
