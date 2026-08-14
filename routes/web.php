@@ -6,6 +6,10 @@ use App\Http\Controllers\Admin\StoreSettingController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/', function () {
+    return view('welcome');
+})->name('home');
+
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
     Route::resource('products', ProductController::class);
     Route::resource('categories', CategoryController::class);
@@ -15,10 +19,14 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
 
     Route::put('/store-settings', [StoreSettingController::class, 'update'])
         ->name('store-settings.update');
+
+    Route::get('/preview', function () {
+        return view('welcome');
+    })->name('preview');
 });
 
 Route::get('/dashboard', function () {
-    return redirect()->route('admin.categories.index');
+    return redirect()->route('admin.products.index');
 })->middleware(['auth'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

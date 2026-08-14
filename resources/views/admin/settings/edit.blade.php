@@ -33,7 +33,7 @@
 
                     <div class="mb-4">
                         <x-input-label for="whatsapp_number" value="Nomor WhatsApp" />
-                        <x-text-input id="whatsapp_number" name="whatsapp_number" type="text" class="mt-1 block w-full" value="{{ old('whatsapp_number', $setting->whatsapp_number) }}" placeholder="contoh: " required />
+                        <x-text-input id="whatsapp_number" name="whatsapp_number" type="text" class="mt-1 block w-full" value="{{ old('whatsapp_number', $setting->whatsapp_number) }}" placeholder="contoh: 6281234567890" required />
                         <x-input-error :messages="$errors->get('whatsapp_number')" class="mt-2" />
                     </div>
 
