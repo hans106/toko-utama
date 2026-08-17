@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="font-semibold text-xl text-teks leading-tight">
             Tambah Produk
         </h2>
     </x-slot>
@@ -14,7 +14,7 @@
 
                     <div class="mb-4">
                         <x-input-label for="category_id" value="Kategori" />
-                        <select id="category_id" name="category_id" class="mt-1 block w-full border-gray-300 rounded-md" required>
+                        <select id="category_id" name="category_id" class="mt-1 block w-full border-latar rounded-md focus:border-brand focus:ring-brand" required>
                             <option value="">-- Pilih Kategori --</option>
                             @foreach ($categories as $category)
                                 <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>
@@ -33,7 +33,7 @@
 
                     <div class="mb-4">
                         <x-input-label for="description" value="Deskripsi (opsional)" />
-                        <textarea id="description" name="description" rows="3" class="mt-1 block w-full border-gray-300 rounded-md">{{ old('description') }}</textarea>
+                        <textarea id="description" name="description" rows="3" class="mt-1 block w-full border-latar rounded-md focus:border-brand focus:ring-brand">{{ old('description') }}</textarea>
                         <x-input-error :messages="$errors->get('description')" class="mt-2" />
                     </div>
 
@@ -45,18 +45,18 @@
 
                     <div class="mb-4 flex items-center gap-2">
                         <input type="hidden" name="is_active" value="0">
-                        <input type="checkbox" id="is_active" name="is_active" value="1" {{ old('is_active', true) ? 'checked' : '' }} class="rounded">
-                        <label for="is_active">Tampilkan di website</label>
+                        <input type="checkbox" id="is_active" name="is_active" value="1" {{ old('is_active', true) ? 'checked' : '' }} class="rounded border-latar text-brand focus:border-brand focus:ring-brand">
+                        <label for="is_active" class="text-teks">Tampilkan di website</label>
                     </div>
 
                     <div class="mb-4 flex items-center gap-2">
                         <input type="hidden" name="is_available" value="0">
-                        <input type="checkbox" id="is_available" name="is_available" value="1" {{ old('is_available', true) ? 'checked' : '' }} class="rounded">
-                        <label for="is_available">Sedang tersedia (bukan habis)</label>
+                        <input type="checkbox" id="is_available" name="is_available" value="1" {{ old('is_available', true) ? 'checked' : '' }} class="rounded border-latar text-tersedia focus:border-tersedia focus:ring-tersedia">
+                        <label for="is_available" class="text-teks">Sedang tersedia (bukan habis)</label>
                     </div>
 
                     <div class="flex items-center justify-end mt-4 space-x-3">
-                        <a href="{{ route('admin.products.index') }}" class="text-gray-600">Batal</a>
+                        <a href="{{ route('admin.products.index') }}" class="text-teks/60 hover:text-teks">Batal</a>
                         <x-primary-button>Simpan</x-primary-button>
                     </div>
                 </form>

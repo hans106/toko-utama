@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="font-semibold text-xl text-teks leading-tight">
             Tambah Kategori
         </h2>
     </x-slot>
@@ -19,7 +19,7 @@
                     </div>
 
                     <div class="flex items-center justify-end mt-4 space-x-3">
-                        <a href="{{ route('admin.categories.index') }}" class="text-gray-600">Batal</a>
+                        <a href="{{ route('admin.categories.index') }}" class="text-teks/60 hover:text-teks">Batal</a>
                         <x-primary-button>Simpan</x-primary-button>
                     </div>
                 </form>

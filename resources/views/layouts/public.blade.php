@@ -12,10 +12,10 @@
 
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased bg-gray-50">
+    <body class="font-sans antialiased bg-latar text-teks">
         {{ $slot }}
 
-        <footer class="bg-gray-800 text-white py-6 mt-12">
+        <footer class="bg-teks text-cream py-6 mt-12">
             <div class="max-w-6xl mx-auto px-4 text-center">
                 <p>&copy; {{ date('Y') }} Toko Utama. All rights reserved.</p>
             </div>
