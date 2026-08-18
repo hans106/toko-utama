@@ -1,4 +1,4 @@
-<nav class="bg-white border-b border-latar">
+<nav class="bg-brand border-b border-brand-dark">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -6,8 +6,8 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center gap-2">
                     <a href="{{ route('dashboard') }}" class="flex items-center gap-2">
-                        <img src="{{ asset('images/utama-shop-icon.png') }}" alt="Toko Utama" class="w-6 h-6 object-contain">
-                        <span class="text-lg font-bold text-teks">Toko Utama</span>
+                        <img src="{{ asset('images/utama-shop-icon.png') }}" alt="Toko Utama" class="w-7 h-7 object-contain">
+                        <span class="text-lg font-bold text-white">Toko Utama</span>
                     </a>
                 </div>
 
@@ -32,7 +32,7 @@
             <div class="flex items-center ms-6">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
-                        <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-teks/70 bg-white hover:text-teks focus:outline-none transition ease-in-out duration-150">
+                        <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white/90 bg-brand hover:text-white focus:outline-none transition ease-in-out duration-150">
                             <div>{{ Auth::user()->name }}</div>
 
                             <div class="ms-1">
