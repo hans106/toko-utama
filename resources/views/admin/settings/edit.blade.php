@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-teks leading-tight">
-            Setting Store
+            Pengaturan Toko
         </h2>
     </x-slot>
 
