@@ -116,12 +116,11 @@
         @endif
     </section>
 
-    <!-- CTA Section -->
-    <section class="bg-ink text-white py-14 pb-20">
-        <div class="max-w-2xl mx-auto px-4 text-center">
-            <h2 class="font-display font-bold text-2xl mb-3">Contact Us</h2>
-            <p class="font-body text-cream/70 mb-6 text-sm">Chat langsung, kami akan bantu siapkan pesanan Anda</p>
-            @if ($waNumber)
+    @if ($waNumber)
+        <section class="bg-ink text-white py-14 pb-20 sm:pb-14">
+            <div class="max-w-2xl mx-auto px-4 text-center">
+                <h2 class="font-display font-bold text-2xl mb-3">Tertarik dengan produk kami?</h2>
+                <p class="font-body text-cream/70 mb-6 text-sm">Chat langsung, kami akan bantu siapkan pesanan Anda</p>
                 <a href="https://wa.me/{{ $waNumber }}" target="_blank"
                     class="hidden sm:inline-flex items-center gap-2 px-7 py-3 bg-brand text-white font-body font-bold text-sm rounded-full hover:bg-brand-dark transition">
                     <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -130,9 +129,9 @@
                     </svg>
                      Chat Sekarang
                 </a>
-            @endif
-        </div>
-    </section>
+            </div>
+        </section>
+    @endif
 
     @if ($waNumber)
         <a href="https://wa.me/{{ $waNumber }}" target="_blank"
