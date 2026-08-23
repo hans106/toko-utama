@@ -29,7 +29,7 @@ RUN composer dump-autoload --optimize --no-dev
 # ============================================================
 # STAGE 3 — Image final: PHP-FPM + Nginx + Supervisor jadi 1 container
 # ============================================================
-FROM php:8.3-fpm-alpine
+FROM php:8.4-fpm-alpine
 
 # Extension PHP yang dibutuhin Laravel + SQLite
 RUN apk add --no-cache \
