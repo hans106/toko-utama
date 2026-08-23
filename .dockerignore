@@ -11,3 +11,4 @@ tests
 .editorconfig
 .gitattributes
 README.md
+bootstrap/cache/*.php
