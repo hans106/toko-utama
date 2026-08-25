@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
 
     public function run(): void
     {
-        // Akun ini CUMA buat testing lokal Hans. 
+        // Akun ini CUMA buat testing lokal. 
         User::create([
             'name' => 'Dev Test',
             'email' => 'dev@tokoutama.test',
