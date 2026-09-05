@@ -1,58 +1,66 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Toko Utama — E-Commerce & Store Management System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A production-deployed e-commerce and store management system built end-to-end for **Toko Utama**, a local wholesale grocery & tobacco business in Karanganyar, Indonesia. Designed to give resellers and new customers online visibility into product catalog and availability.
 
-## About Laravel
+🔗 **Live site:** [toko-utama-production.up.railway.app](https://toko-utama-production.up.railway.app)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Overview
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+This is a real freelance client project, not a course assignment. It was built from scratch through a full development lifecycle: requirement gathering with the client, database design, feature development, and production deployment.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+The client's core need was **online visibility for reseller customers** — not a full POS/inventory system — so the product scope was intentionally kept focused: a public product catalog + an admin panel to manage it.
 
-## Learning Laravel
+## Features
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- Public-facing product catalog (categories, availability status)
+- Admin panel with authentication (Laravel Breeze)
+- **Role-Based Access Control (RBAC)** for admin roles, separating access based on operational needs
+- Product & category CRUD, image management
+- Store settings management
+- WhatsApp integration for customer inquiries
+- Responsive UI for both desktop and mobile
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Tech Stack
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+| Layer | Technology |
+|---|---|
+| Backend | Laravel 13 |
+| Frontend | Blade, Tailwind CSS |
+| Database | SQLite |
+| Auth | Laravel Breeze |
+| Deployment | Docker, Nginx, PHP-FPM (via Supervisor), Railway |
 
-## Agentic Development
+## Architecture Notes
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+- Single Laravel application (Blade-rendered, no separate SPA) — chosen for simplicity and fast delivery given the client's actual needs.
+- SQLite was chosen over MySQL/Postgres to keep infrastructure lightweight for a small-scale UMKM use case.
+- Deployed to production using a custom Docker setup (Nginx + PHP-FPM via Supervisor), connected to Railway via GitHub webhook for continuous deployment.
 
-```bash
-composer require laravel/boost --dev
+## Database Design (ERD Summary)
 
-php artisan boost:install
-```
+- `categories` — product categories
+- `products` — includes an `is_available` flag to reflect "Habis" (out of stock) state; intentionally has no price/stock columns, since inventory tracking wasn't part of the client's requirement
+- `store_settings` — store-level configuration
+- `users` — admin accounts with role-based permissions
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+## Local Setup
 
-## Contributing
+\`\`\`bash
+git clone https://github.com/hans106/toko-utama.git
+cd toko-utama
+composer install
+cp .env.example .env
+php artisan key:generate
+php artisan migrate
+npm install && npm run build
+php artisan serve
+\`\`\`
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Author
 
-## Code of Conduct
+**Hans Vere Liem** — Informatics student, Full Stack Development, Universitas Ciputra Surabaya
+[LinkedIn](https://www.linkedin.com/in/hans-vere-liem-013810323) · [GitHub](https://github.com/hans106)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+---
 
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+*This project was built as a real freelance engagement for a family-owned business, and is showcased here as part of my development portfolio.*
